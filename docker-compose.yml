@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  fastapi-proxy:
+    container_name: fastapi-proxy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5000"
+    volumes:
+      - ./:/app
+    environment:
+      - SITE_URL=https://news.ycombinator.com/
